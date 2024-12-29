@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelma Lopes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        height: 70vh;
+        font-family: Verdana;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+    }
+
+    .container {
+        text-align: center;
+        padding: 50px 0px;
+        background: linear-gradient(rgb(212, 191, 136), rgb(206, 166, 65), rgb(218, 160, 13));
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 28px;
+        color: rgb(255, 255, 255);
+        background-color: #000000;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 700;
+    }
+
+    img {
+        border-radius: 20px;
+        width: 350px;
+    }
+
+    .imagem {
+        width: 350px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 5s ease, transform 3s ease;
+    }
+
+    .imagem.surgir {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+    }
+
+    h3 {
+        font-family: Verdana;
+    }
+
+    .nome {
+        position: absolute;
+        font-size: 2em;
+        opacity: 0;
+        animation: aparecer 3s forwards;
+    }
+
+    .nome.esquerda {
+        left: -100%;
+        animation-name: moverEsquerda;
+    }
+
+    .nome.direita {
+        right: -100%;
+        animation-name: moverDireita;
+    }
+
+    @keyframes moverEsquerda {
+        0% {
+            left: -100%;
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes moverDireita {
+        0% {
+            right: -100%;
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
+
+    .borda-piscante {
+        width: 300px;
+        height: 200px;
+        border: 10px solid transparent;
+        position: relative;
+        padding: 10px 20px;
+        font-size: 30px;
+        border-radius: 8px;
+        font-weight: 700;
+        color: rgb(0, 0, 0);
+        font-family: Verdana;
+    }
+
+    .borda-piscante::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 10px solid rgb(0, 0, 0);
+        opacity: 0;
+        animation: piscar 3s infinite;
+        border-radius: 10px;
+    }
+
+    @keyframes piscar {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <img src="incio.jpg" alt="Imagem" class="imagem" id="imagem">
+        <script>
+            window.onload = function () {
+                const imagem = document.getElementById('imagem');
+                imagem.classList.add('surgir');
+            };
+        </script>
+        <div class="nome esquerda"> <img style="width: 150px; border-radius: 0%;" src="nome1.png" alt=""> </div>
+        <br><br><br><br><br>
+        <div class="nome direita"> <img style="width: 150px; border-radius: 0%;" src="nome2.png" alt=""> </div>
+        <script>
+            document.querySelectorAll('.nome').forEach((element) => {
+                element.style.opacity = 1;
+            });
+        </script><br><br><br><br>
+        <p>Como profissional de beleza, minha missão é ajudar as pessoas <br> a encontrar suas sobrancelhas perfeitas!.
+        </p>
+        <a class="borda-piscante" href="index2.html"><u>ENTRE AQUI</u></a>
+    </div><br>
+    <style>
+        .foto {
+            opacity: 0;
+            transition: opacity 3s;
+            width: 70%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+    <section style="text-align: center;">
+        <img src="foto2.jpg" class="foto" alt="Foto 2">
+        <img src="foto3.jpg" class="foto" alt="Foto 3">
+        <img src="foto4.jpg" class="foto" alt="Foto 4">
+        <img src="foto5.jpg" class="foto" alt="Foto 5">
+    </section>
+    <script>
+        const fotos = document.querySelectorAll('.foto');
+
+        function mostrarFotos() {
+            const windowHeight = window.innerHeight;
+            fotos.forEach(foto => {
+                const fotoTop = foto.getBoundingClientRect().top;
+                if (fotoTop < windowHeight) {
+                    foto.style.opacity = 1;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', mostrarFotos);
+        window.addEventListener('load', mostrarFotos);
+    </script>
+   <footer >
+    <style>
+        footer {background-color: #000000;color: #fff;text-align: center;padding: 10px 0;
+        border-radius: 10px;}
+        .rodape ul {list-style: none;padding: 0; font-size: 12px;}
+        .rodape li {display: inline;margin: 0 10px;}
+        .rodape a {color: #fff;text-decoration: none;}
+        .rodape a:hover { text-decoration: underline;}
+        .wha { width: 2%;box-shadow: 10px, 10px, 20px black -10px -10px 20px black;}
+        .inst {width: 2%;}
+        .car {width: 20%;margin-top: 3%; }
+        b{font-size: 12px;}
+        li{font-size: 12px;}
+    </style>
+    <!--rodape-->
+    <div class="rodape">
+        <ul>
+            <h4> <img class="wha" src="whatsapp.png">(99) 99178-9400</h4>
+            <li>
+              <img id="C1" class="inst" src="instagram.png" alt=""><a style="font-size: 100%;"
+                    href="https://www.instagram.com/kelmasobrancelhas/profilecard/?igsh=Z2toMzR5dXFhbnpz ">
+                    <b>Acesse aqui nosso Instagram</b></a>
+          
+            </li>
+       
+        </ul>
+        <!-- <li><b>Email:</b> itingadomaranhao@gmail.com</li><br><br> -->
+        <li><b>Endereço:</b> Av. Maron Ramos, S\N, Vila Samuel, Itinga do Maranhão. <br>
+            <br><strong>Horario de atendimento:</strong>  Segunda a Sábado das 8:30 as 12:00 <br> e das 14:00 as 18:30
+        <br><br>Formas de pagamentos:
+        </li><br>
+
+        <img class="car" src="cartao.webp" alt=""><br><br>
+        <a  href="https://wa.me/5599992247544" target="_blank"><li><i><u>Site criado por: Carlos de Freitas Rocha. <br>Click aqui e faça seu orçamento.</u></i></li></a>
+        <p><a  href="https://wa.me/5599992247544" target="_blank"><img src="logo2.png" style="width: 50px;"></a></p>
+    </div>
+</footer> </section>
+</body>
+
+</html>

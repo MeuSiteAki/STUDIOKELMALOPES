@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários de Funcionamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .status {
+            font-size: 24px;
+            padding: 20px;
+            color: white;
+        }
+        .aberto {
+            background-color: green;
+        }
+        .fechado {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="letreiro" class="status"></div>
+
+    <script>
+        const letreiro = document.getElementById('letreiro');
+        const agora = new Date();
+        const diaDaSemana = agora.getDay();
+        const horaAtual = agora.getHours() + (agora.getMinutes() / 60);
+
+        const horariosAbertos = (horaAtual >= 8.5 && horaAtual < 12) || (horaAtual >= 14 && horaAtual < 17.5);
+
+        if (diaDaSemana === 0) {
+            letreiro.className = 'status fechado';
+            letreiro.innerText = 'Fechado';
+        } else if (horariosAbertos) {
+            letreiro.className = 'status aberto';
+            letreiro.innerText = 'Aberto';
+        } else {
+            letreiro.className = 'status fechado';
+            letreiro.innerText = 'Fechado';
+        }
+    </script>
+</body>
+</html>

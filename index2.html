@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelma Lopes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    body {
+        font-family: Verdana;
+        margin: 0;
+        padding: 0;
+        background-color: goldenrod;
+    }
+
+    header {
+        background: rgb(0, 0, 0);
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 20px;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255);
+        animation: flutuar 4s;
+        border-radius: 10px;
+
+    }
+
+    @keyframes flutuar {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 20px;
+        box-shadow: 10px 10px 20px rgb(0, 0, 0), -10px -10px 20px rgb(0, 0, 0)
+    }
+
+    nav ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    section {
+        padding: 20px;
+        margin: 10px;
+        background: #fff;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background: #000000;
+        color: #fff;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #agendar {
+        color: white;
+        background-color: rgb(45, 45, 238);
+        font-size: 19px;
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    #enviar {
+        color: white;
+        background-color: rgb(16, 190, 10);
+        font-size: 18px;
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 2s;
+    }
+
+    .serviços {
+        background: linear-gradient(90deg, rgb(0, 0, 0), black, rgb(0, 0, 0));
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #sobre {
+        text-align: center;
+    }
+
+    #contato {
+        text-align: center;
+    }
+
+    #horario {
+        font-size: 22px;
+        border-radius: 7px;
+    }
+
+    #horario option {
+        font-weight: 600;
+    }
+
+    input[type="checkbox"] {
+        width: 28px;
+        height: 30px;
+    }
+
+    .logo {
+        height: 200px;
+        width: 300px;
+        border-radius: 10px;
+    }
+
+    label {
+        font-size: 25px;
+    }
+
+    .pagamento {
+        text-align: center;
+    }
+
+    #topo {
+        background-color: goldenrod;
+
+    }
+</style>
+    
+<body>
+    <section id="topo">
+        <header>
+            <img class="logo" src="logo.png" alt="">
+        </header>
+    </section>
+    <section class="inicio">
+        <style>
+            .nome {
+                cursor: pointer;
+                color: rgb(0, 0, 0);
+                text-decoration: underline;
+                text-align: center;
+                font-family: Verdana;
+                font-weight: 600;
+                font-size: 22px;
+            }
+
+            .popup {
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .popup img {
+                max-width: 80%;
+                max-height: 80%;
+            }
+
+            .inicio {
+                background-color: rgb(255, 255, 255);
+            }
+
+            #listaCarrinho {
+                font-size: 20px;
+            }
+
+            .S1 {
+                background-color: #000000;
+                color: white;
+                padding: 3px;
+                border-radius: 5px;
+                font-size: 25px;
+            }
+        </style>
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Biografia</a></li><br><br><br>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav><br>
+    </section>
+    
+    <section>
+        <style>
+            .gallery {
+                position: relative;
+                text-align: center;
+                background-color: goldenrod;
+                border-radius: 80px;
+                padding: 5px;
+            }
+
+            .photo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            img {
+                max-width: 500px;
+                max-height: 300px;
+                border-radius: 10px;
+            }
+
+            p {
+                margin-top: 10px;
+                font-size: 18px;
+            }
+
+            .nav-button {
+                background-color: #000000;
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                border-radius: 100%;
+                margin: 10px;
+            }
+
+            .nav-button:hover {
+                background-color: #0056b3;
+            }
+
+            #caption {
+                font-size: 15px;
+            }
+        </style>
+        <div class="gallery">
+            <div class="photo-container">
+                <img id="photo" src="foto1.jpg" alt="Foto 1">
+                <p id="caption">Frase da Foto 1</p>
+            </div>
+            <button id="prev" class="nav-button">❮</button>
+            <button id="next" class="nav-button">❯</button>
+        </div>
+        <script>
+            const photos = [
+                { src: 'f.ex.png', caption: 'Criar uma rotina de cuidados, facilitando a manutenção. ' },
+                { src: 'f.ex2.png', caption: 'Valorizar o autocuidado, eliminando a impressão de desleixo. ' },
+                { src: 'f.ex3.png', caption: 'Maior impacto e expressividade ao olhar.' }
+            ];
+
+            let currentIndex = 0;
+
+            const photoElement = document.getElementById('photo');
+            const captionElement = document.getElementById('caption');
+
+            function updatePhoto() {
+                photoElement.src = photos[currentIndex].src;
+                captionElement.textContent = photos[currentIndex].caption;
+            }
+
+            document.getElementById('prev').addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : photos.length - 1;
+                updatePhoto();
+            });
+
+            document.getElementById('next').addEventListener('click', () => {
+                currentIndex = (currentIndex < photos.length - 1) ? currentIndex + 1 : 0;
+                updatePhoto();
+            });
+
+            updatePhoto();
+
+        </script>
+    </section>
+
+    <!-- <div class="nome" onclick="mostrarImagem('foto4 tipos.jpg')">EXEMPLOS DE SOBRANCELHAS</div><br>
+        <div class="nome" onclick="mostrarImagem('foto4 tipo2.webp')">FORMATO DO ROSTO</div>
+
+        <div class="popup" id="popup" onclick="fecharImagem()">
+            <img id="imagemPopup" src="" alt="Imagem">
+        </div>
+
+        <script>
+            function mostrarImagem(imagem) {
+                document.getElementById('imagemPopup').src = imagem;
+                document.getElementById('popup').style.display = 'flex';
+            }
+
+            function fecharImagem() {
+                document.getElementById('popup').style.display = 'none';
+            }
+        </script> -->
+    </section>
+
+    <!-- produtos -->
+
+    <style>
+        .produto {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-descricao {
+            background-color: #020202;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .descricao {
+            margin-top: 10px;
+            font-style: italic;
+        }
+    </style>
+
+    <script>
+        function mostrarDescricao(id) {
+            var descricao = document.getElementById(id);
+            if (descricao.style.display === "none") {
+                descricao.style.display = "block";
+            } else {
+                descricao.style.display = "none";
+            }
+        }
+
+    </script>
+
+
+<section id="servicos">
+    <marquee class="serviços" id="T" scrollamount="0" direction="right"><i class="sec">SERVIÇOS</i></marquee>
+    <ul style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Epilação do Buço</a><br>
+                <img src="buço.jpg" onclick="showPopup('buço.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$8.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Epilação do Buço - R$8.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao1')">Ver Descrição</button>
+                <p id="descricao1" class="descricao" style="display:none;">A epilação do buço é um procedimento estético que remove os pelos da região do buço, incluindo as camadas mais profundas da pele, como o bulbo piloso.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Design Navalha</a><br>
+                <img src="d.navalha.jpg" onclick="showPopup('d.navalha.jpg')" style="cursor: pointer;" />
+            <label>
+               <br> R$20.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Design Navalha - R$20.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao2')">Ver Descrição</button>
+                <p id="descricao2" class="descricao" style="display:none;">O design de sobrancelhas com navalha é uma técnica que consiste em remover os pelos das sobrancelhas para delinear o desenho natural e deixar o olhar mais leve.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Design Pinça/Cera</a><br>
+            <img src="d.pinça.cera.jpg" onclick="showPopup('d.pinça.cera.jpg')" style="cursor: pointer;" />
+            <label>
+               <br> R$25.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Design Pinça/Cera - R$25.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao3')">Ver Descrição</button>
+                <p id="descricao3" class="descricao" style="display:none;">O design de sobrancelha com pinça ou cera é uma técnica para remodelar as sobrancelhas, deixando-as mais simétricas e equilibradas, e valorizando o olhar.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Design com Henna</a><br>
+                <img src="d.henna.jpg" onclick="showPopup('d.henna.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$40.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Design com Henna - R$40.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao4')">Ver Descrição</button>
+                <p id="descricao4" class="descricao" style="display:none;">O design com henna é uma técnica de maquiagem que combina a remodelação das sobrancelhas com a aplicação de henna para corrigir falhas, alongar e realçar os fios.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Design com Tintura</a><br>
+                <img src="d.tintura.jpg" onclick="showPopup('d.tintura.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$45.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Design com Tintura - R$45.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao5')">Ver Descrição</button>
+                <p id="descricao5" class="descricao" style="display:none;">Design de sobrancelha com tintura é uma técnica que combina o design das sobrancelhas com a coloração dos fios, para melhorar a aparência e dar mais forma às sobrancelhas.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Aplicação de Henna</a><br>
+                <img src="aplicacao h.jpg" onclick="showPopup('aplicacao h.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$30.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Aplicação de Henna - R$30.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao6')">Ver Descrição</button>
+                <p id="descricao6" class="descricao" style="display:none;">A aplicação de henna na sobrancelha é um procedimento de coloração temporária que preenche falhas, define o formato e intensifica a cor dos pelos.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Spa das Sobrancelhas</a><br>
+                <img src="spa.jpg" onclick="showPopup('spa.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$60.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Spa das Sobrancelhas - R$60.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao7')">Ver Descrição</button>
+                <p id="descricao7" class="descricao" style="display:none;">O spa de sobrancelhas é um procedimento que visa proporcionar uma experiência de relaxamento e beleza, além de tratar a pele e os fios das sobrancelhas.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Brow Lamination</a><br>
+                <img src="brow.jpg" onclick="showPopup('brow.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$140.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Brow Lamination - R$140.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao8')">Ver Descrição</button>
+                <p id="descricao8" class="descricao" style="display:none;">Brow Lamination é uma técnica de design de sobrancelhas que utiliza produtos químicos e térmicos para alisar e dar volume aos fios, criando um efeito natural e preenchido.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Maquiagem</a><br>
+                <img src="make.jpg" onclick="showPopup('make.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$80.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Maquiagem - R$80.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao9')">Ver Descrição</button>
+                <p id="descricao9" class="descricao" style="display:none;">A maquiagem de sobrancelha é um conjunto de produtos e técnicas que permitem definir o formato, preencher falhas e realçar o tom dos fios.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Babyliss</a><br>
+                <img src="baby.jpg" onclick="showPopup('baby.jpg')" style="cursor: pointer;" />
+            <label>
+                <br> R$30.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Babyliss - R$30.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao10')">Ver Descrição</button>
+                <p id="descricao10" class="descricao" style="display:none;">Com o babyliss, também conhecido como modelador de cachos, é possível modelar todos os tipos de cabelo para ter cachos mais abertos ou fechados e garantir um efeito de movimento para os fios.</p>
+                <br>__________________
+            </label>
+        </div>
+        <div class="item" style="margin: 10px; text-align: center;">
+            <a class="S1" style="display: block;">Micropigmentação</a><br>
+            <img src="micro.jpg" onclick="showPopup('micro.jpg')" style="cursor: pointer;" />
+            <label>   
+                <br> R$350.00
+                <input onchange="atualizarContador(this)" type="checkbox" class="produto" value="Micropigmentação - R$350.00">
+                <br><button class="btn-descricao" onclick="mostrarDescricao('descricao11')">Ver Descrição</button>
+                <p id="descricao11" class="descricao" style="display:none;">A micropigmentação é uma técnica que preenche a sobrancelha de forma natural e dá ao olhar um aspecto mais forte e marcante.</p>
+                <br>__________________
+            </label>
+        </div>
+    </ul>
+</section>
+
+<script>
+function showPopup(imageSrc) {
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100%';
+    popup.style.height = '100%';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.display = 'flex';
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+    popup.onclick = function() {
+        document.body.removeChild(popup);
+    };
+
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.cursor = 'zoom-in';
+
+    popup.appendChild(img);
+    document.body.appendChild(popup);
+}
+</script>
+
+
+
+    <!-- contador -->
+    <style>
+        #contador {
+            width: 3%;
+            position: fixed;
+            width: 25px;
+            height: 28px;
+            bottom: 240px;
+            right: 10px;
+            text-align: center;
+            font-size: 25px;
+            z-index: 1000;
+            background-color: rgb(255, 255, 255);
+            border-radius: 30px;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+
+    <div id="contador">0</div>
+
+    <!-- carrinho -->
+     
+    <section id="carrinho2" class="pagamento">
+        <marquee class="serviços" id="T" scrollamount="0" direction="right"><i class="sec">CARRINHO</i></marquee>
+        <div class="carrinho"><br>
+            <u><label for="endereco">DIGITE SEU NOME:</label></u><br><br>
+            <input size="30" style="border-radius: 10px; text-align: center; font-weight: 600; font-size: 16px; padding: 5px;" type="text" id="nome"
+                name="nome" placeholder="Nome completo" required><br><br>
+            <u><label for="formaPagamento">FORMA DE PAGAMENTO:</label></u><br><br>
+            <select style="border-radius: 10px; text-align: center; font-size: 15px;padding: 5px" id="formaPagamento" name="formaPagamento" required>
+                <option value="">-:-</option>
+                <option value="PIX">PIX</option>
+                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                <option value="Cartão de Débito">Cartão de Débito</option>
+                <option value="Dinheiro">Dinheiro</option>
+            </select><br><br>
+            <div id="parcelas" style="display: none; padding: 5px">
+                <u><label for="parcelasSelect">DIVIDIR EM:</label></u><br><br>
+                <select style="font-size: 12px; padding: 5px;" id="parcelasSelect">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                </select><br><br>
+            </div>
+            <u><label for="data">ESCOLHA UMA DATA E HORÁRIO:</label></u><br><br>
+            <input style="font-size: 17px;" type="date" id="data" required><br><br>
+
+            <select id="horario">
+                <option value="">--:--</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="">--:--</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+            </select><br><br>
+            <button id="agendar">Agende AQUI!</button><br>
+            <p id="status"></p>
+            <h3> <img style="width: 25px;" src="carrinho-de-compras.png" alt=""> Carrinho</h3>
+            <ul id="listaCarrinho"></ul>
+            <p style="color: red; font-size: 25px;">Total: R$<span id="total">0</span></p>
+            <button style="padding: 3px; border-radius: 7px;" onclick="limparCarrinho()">Limpar Carrinho</button><br>
+            <br>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+            <button id="enviar">Enviar para WhatsApp</button>
+        </div>
+        <h5>Obs: Depois que agendar, clique em enviar para WhatsApp.</h5>
+    </section>
+
+    <script>
+        document.getElementById('agendar').addEventListener('click', function () {
+            document.getElementById('enviar').style.opacity = 1;
+        });
+
+        document.getElementById('formaPagamento').addEventListener('change', function () {
+            const parcelasDiv = document.getElementById('parcelas');
+            if (this.value === 'Cartão de Crédito') {
+                parcelasDiv.style.display = 'block';
+            } else {
+                parcelasDiv.style.display = 'none';
+            }
+        });
+    </script>
+    <style>
+        p{
+        font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+    <section id="sobre">
+        <marquee class="serviços" id="T" scrollamount="0" direction="right"><i class="sec">BIOGRAFIA</i></marquee>
+        <p class="fade-in" id="bio">Olá, me chamo Kelma Lopes sou designer de sobrancelhas e micropigmentadora, moro em itinga do Maranhão e atuo na área das sobrancelhas a mais de 10 anos ... Sou Mãe ! Sou mulher ! Sou Emprededora e apaixonada pelo que faço ... Amo elevar a auto estima de outras mulheres com meu trabalho buscando assim transformar sobrancelhas em obras de arte!</p>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const bio = document.getElementById('bio');
+            const bioPosition = bio.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+
+            if (bioPosition < screenPosition) {
+                bio.classList.add('visible');
+            }
+        });
+    </script>
+    </section>
+
+    <footer>
+        <style>
+            .whatsapp-link {
+                position: fixed;
+                width: 40px;
+                height: 40px;
+                bottom: 40px;
+                right: 15px;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                z-index: 1000;
+                cursor: pointer;
+            }
+
+            .car3 {
+                width: 3%;
+                position: fixed;
+                width: 40px;
+                height: 40px;
+                bottom: 120px;
+                right: 15px;
+                text-align: center;
+                font-size: 30px;
+                z-index: 1000;
+                background-color: goldenrod;
+                border-radius: 30%;
+            }
+
+            .car2 {
+                width: 3%;
+                position: fixed;
+                width: 40px;
+                height: 40px;
+                bottom: 200px;
+                right: 15px;
+                text-align: center;
+                font-size: 30px;
+                z-index: 1000;
+                background-color: goldenrod;
+                border-radius: 30%;
+            }
+        </style>
+        <a href="#topo"><img class="car3" src="img topo.png"></a>
+        <a onclick="atendimentoAutomatico()"> <img class="whatsapp-link" src="whatsapp.png" alt=""> </a>
+    </footer>
+
+    <script>
+        const horarioSelect = document.getElementById('horario');
+        const agendarButton = document.getElementById('agendar');
+        const statusText = document.getElementById('status');
+        const dataInput = document.getElementById('data');
+
+        let indisponivelHorarios = JSON.parse(localStorage.getItem('indisponivelHorarios')) || {};
+
+        function atualizarDisponibilidade() {
+            const agora = new Date().getTime();
+            for (const [horario, tempo] of Object.entries(indisponivelHorarios)) {
+                if (agora > tempo) {
+                    delete indisponivelHorarios[horario];
+                }
+            }
+            localStorage.setItem('indisponivelHorarios', JSON.stringify(indisponivelHorarios));
+            atualizarStatus();
+        }
+
+        function atualizarStatus() {
+            horarioSelect.querySelectorAll('option').forEach(option => {
+                if (indisponivelHorarios[option.value]) {
+                    option.classList.add('indisponivel');
+                    option.disabled = true;
+                } else {
+                    option.classList.remove('indisponivel');
+                    option.disabled = false;
+                }
+            });
+        }
+
+        agendarButton.addEventListener('click', () => {
+            const horarioEscolhido = horarioSelect.value;
+            const dataEscolhida = dataInput.value.split('-').reverse().join('/');
+            if (!indisponivelHorarios[horarioEscolhido]) {
+                indisponivelHorarios[horarioEscolhido] = new Date().getTime() + 600; // 1 minuto
+                localStorage.setItem('indisponivelHorarios', JSON.stringify(indisponivelHorarios));
+                statusText.textContent = `Horário ${horarioEscolhido} no dia ${dataEscolhida} agendado!`;
+                atualizarDisponibilidade();
+                Swal.fire('Agendado com sucesso!');
+            } else {
+                statusText.textContent = `Horário ${horarioEscolhido} já está indisponível!`;
+            }
+            setTimeout(function () {
+                location.reload();
+            }, 60000);
+        });
+
+        atualizarDisponibilidade();
+    </script>
+    <script>
+        const produtos = document.querySelectorAll('.produto');
+        const listaCarrinho = document.getElementById('listaCarrinho');
+        const totalElement = document.getElementById('total');
+        const enviarButton = document.getElementById('enviar');
+        let total = 0;
+
+        produtos.forEach(produto => {
+            produto.addEventListener('change', () => {
+                const valor = parseFloat(produto.value.split(' - R$')[1]);
+                if (produto.checked) {
+                    total += valor;
+                    const li = document.createElement('li');
+                    li.textContent = produto.value;
+                    listaCarrinho.appendChild(li);
+                    Swal.fire('Adicionado no carrinho!');
+                } else {
+                    total -= valor;
+                    const items = Array.from(listaCarrinho.children);
+                    items.forEach(item => {
+                        if (item.textContent === produto.value) {
+                            listaCarrinho.removeChild(item);
+                        }
+                    });
+                }
+                totalElement.textContent = total.toFixed(2);
+            });
+        });
+        enviarButton.addEventListener('click', () => {
+            const horario = document.getElementById('horario').value;
+            const data = document.getElementById('data').value.split('-').reverse().join('/');
+            const nome = document.getElementById('nome').value;
+            const formaPagamento = document.getElementById('formaPagamento').value;
+            const parcelas = document.getElementById('parcelasSelect').value;
+            const statusText = document.getElementById('status');
+            const mensagem = ` \nInformações do Cliente: 
+            \nNome: ${nome}  \nForma de Pagamento:  ${formaPagamento}  
+    \nData marcada: ${data}  \nHorário marcado: ${horario}  \nParcelas: ${parcelas}
+            
+            #Serviços escolhidos: ${Array.from(listaCarrinho.children).map(item => item.textContent).join(', ')}.
+            _____________________________
+            Total: R$${total.toFixed(2)}.`;
+
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=5599991789400&text=${encodeURIComponent(mensagem)}`;
+            window.open(whatsappUrl);
+        });
+        function enviarMensagem(mensagem) {
+            const numeroWhatsApp = "5599991789400";
+            const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
+        function atendimentoAutomatico() {
+            const mensagens = [
+                "Olá! Como posso ajudar? Estou aqui para responder suas perguntas.",
+            ];
+            mensagens.forEach(mensagem => enviarMensagem(mensagem));
+        }
+
+    </script>
+
+    <script>
+        let contagem = 0;
+
+        function atualizarContador(checkbox) {
+            if (checkbox.checked) {
+                contagem++;
+            } else {
+                contagem--;
+            }
+            document.getElementById('contador').innerText = '' + contagem;
+        }
+        function limparCarrinho() {
+            const listaCarrinho = document.getElementById('listaCarrinho');
+            listaCarrinho.innerHTML = '';
+            total = 0;
+            document.getElementById('total').textContent = total.toFixed(2);
+            contagem = 0;
+            document.getElementById('contador').innerText = '' + contagem;
+            const produtos = document.querySelectorAll('.produto');
+            produtos.forEach(produto => {
+                produto.checked = false;
+            });
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    <script>
+        let total2 = 0;
+        if (document.getElementById('gl').checked) total2 += 50;
+        if (document.getElementById('sod').checked) total2 += 20;
+        if (document.getElementById('hem').checked) total2 += 30;
+
+
+        document.getElementById('total2').innerText = "Total2: R$ " + total2.toFixed(2);
+        function mostDesc(botao) {
+            var descricao = botao.previousElementSibling;
+            if (descricao.style.display === "none") {
+                descricao.style.display = "block";
+                botao.textContent = "Fechar";
+            } else {
+                descricao.style.display = "none";
+                botao.textContent = "Descrição";
+            }
+        }
+    </script>
+    <script>
+        function alterarStatus() {
+            var status = document.getElementById("status");
+            var horaAtual = new Date().getHours();
+            if (horaAtual >= 19 && horaAtual < 25) {
+                status.innerHTML = "Aberto";
+                status.style.color = "green";
+            } else {
+                status.innerHTML = "Fechado";
+                status.style.color = "red";
+            }
+        }
+    </script>
+
+    <a href="#carrinho2"><img class="car2" src="carrinho-de-compras.png"></a>
+    <section id="contato">
+        <marquee class="serviços" id="T" scrollamount="0" direction="right"><i class="sec">CONTATO</i></marquee>
+
+
+        <footer>
+            <style>
+                footer {
+                    background-color: #000000;
+                    color: #fff;
+                    text-align: center;
+                    padding: 10px 0;
+                    border-radius: 10px;
+                }
+
+                .rodape ul {
+                    list-style: none;
+                    padding: 0;
+                    font-size: 12px;
+                }
+
+                .rodape li {
+                    display: inline;
+                    margin: 0 10px;
+                }
+
+                .rodape a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                .rodape a:hover {
+                    text-decoration: underline;
+                }
+
+                .wha {
+                    width: 2%;
+                    box-shadow: 10px, 10px, 20px black -10px -10px 20px black;
+                }
+
+                .inst {
+                    width: 2%;
+                }
+
+                .car {
+                    width: 20%;
+                    margin-top: 3%;
+                }
+
+                b {
+                    font-size: 12px;
+                }
+            </style>
+            <!--rodape-->
+            <div class="rodape">
+                <ul>
+                    <h4> <img class="wha" src="whatsapp.png">(99) 99178-9400</h4>
+                    <li>
+                        <img id="C1" class="inst" src="instagram.png" alt=""><a style="font-size: 100%;"
+                            href="https://www.instagram.com/kelmasobrancelhas/profilecard/?igsh=Z2toMzR5dXFhbnpz ">
+                            <b>Acesse aqui nosso Instagram</b></a>
+                        <a class="whatsapp-link" href="https://wa.me/5599991789400" target="_blank"><img
+                                class="whatsapp-link" src="whatsapp.png" alt=""></a>
+                    </li>
+                    <a href="#carrinho2"><img class="car2" src="carrinho-de-compras.png"></a>
+                    <a href="#topo"><img class="car3" src="img topo.png"></a>
+                </ul>
+                <!-- <li><b>Email:</b> itingadomaranhao@gmail.com</li><br><br> -->
+                <li><b>Av. Maron Ramos, S\N, Vila Samuel, Itinga do Maranhão. </b> <br>
+                    <br><b>Horario de atendimento:</strong>  Segunda a Sábado das 8:30 as 12:00 <br> e das 14:00 as 18:30
+                        <br><br>Formas de pagamentos:</b>
+                </li><br>
+
+                <img class="car" src="cartao.webp" alt=""><br><br>
+                <a href="https://wa.me/5599992247544" target="_blank">
+                    <li><i><u><b>Site criado por: Carlos de Freitas Rocha.</b> <br>Click no link e faça seu
+                                orçamento.</u></i></li>
+                </a>
+                <b>
+                    <p><a href="https://wa.me/5599992247544" target="_blank"><img src="logo2.png"
+                                style="width: 50px;"></a></p>
+                </b>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>
+<!-- horario no agendar = \nHorário marcado: ${horario} -->
